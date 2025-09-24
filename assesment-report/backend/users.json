@@ -1,5 +1,13 @@
 [
   {
     "password": "$2b$08$XR4h8L1thdYT89UxCLyUR.HuCbeVDVgGrZWDN9stTFhUixTTIHr5m"
+  },
+  {
+    "email": "md@gmail.com",
+    "password": "$2b$08$H2wbQQh8/.T1Jlssx7qk6OX/mEtAqkcfJFugYehB2G57d1ZlO4m6u"
+  },
+  {
+    "email": "admin@gmail.com",
+    "password": "$2b$08$XRpjh3iiKOoJk6vkg52NiuK5ADD/A/oCCO7fowxwRH6nUYwKol9ue"
   }
 ]
