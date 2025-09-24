@@ -1,41 +1,56 @@
 module.exports = {
-  assessments: {
-    as_hr_02: {
-      displayName: "Health & Fitness Assessment",
-      sections: [
-        {
-          title: "Key Body Vitals",
-          fields: [
-            { label: "Overall Score", path: "accuracy" },
-            { label: "Heart Rate", path: "vitalsMap.vitals.heart_rate" },
-            { label: "BP Systolic", path: "vitalsMap.vitals.bp_sys" },
-            { label: "BP Diastolic", path: "vitalsMap.vitals.bp_dia" }
-          ]
-        },
-        {
-          title: "Body Composition",
-          fields: [
-            { label: "BMI", path: "bodyCompositionData.BMI" },
-            { label: "Body Fat %", path: "bodyCompositionData.BFC" }
-          ]
-        }
-      ]
-    },
-    as_card_01: {
-      displayName: "Cardiac Assessment",
-      sections: [
-        {
-          title: "Key Body Vitals",
-          fields: [
-            { label: "Overall Score", path: "accuracy" },
-            { label: "Heart Rate", path: "vitalsMap.vitals.heart_rate" }
-          ]
-        },
-        {
-          title: "Body Composition",
-          fields: [{ label: "BMI", path: "bodyCompositionData.BMI" }]
-        }
-      ]
+  // -------------------------
+  // Health & Fitness Assessment
+  // -------------------------
+  as_hr_02: {
+    sections: [
+      "Key Body Vitals",
+      "Heart Health",
+      "Stress Level",
+      "Fitness Levels",
+      "Posture",
+      "Body Composition"
+    ],
+    fields: {
+      // Top-level accuracy
+      overallHealthScore: "accuracy",
+
+      // Key Body Vitals
+      heartRate: "vitalsMap.vitals.heart_rate",
+      bpSys: "vitalsMap.vitals.bp_sys",
+      bpDia: "vitalsMap.vitals.bp_dia",
+
+      // Fitness Levels → special mapping (exercise with id: 235 → setList[0].time)
+      cardioEndurance: { exerciseId: 235, field: "time" },
+
+      // Body Composition
+      bmi: "bodyCompositionData.BMI"
+    }
+  },
+
+  // -------------------------
+  // Cardiac Assessment
+  // -------------------------
+  as_card_01: {
+    sections: [
+      "Key Body Vitals",
+      "Cardiovascular Endurance",
+      "Body Composition"
+    ],
+    fields: {
+      // Top-level accuracy
+      overallHealthScore: "accuracy",
+
+      // Key Body Vitals
+      heartRate: "vitalsMap.vitals.heart_rate",
+      bpSys: "vitalsMap.vitals.bp_sys",
+      bpDia: "vitalsMap.vitals.bp_dia",
+
+      // Cardio Endurance → same mapping from exerciseId: 235
+      cardioEndurance: { exerciseId: 235, field: "time" },
+
+      // Body Composition
+      bmi: "bodyCompositionData.BMI"
     }
   }
 };
